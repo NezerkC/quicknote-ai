@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Notepad base card -->
+    <path
+        android:pathData="M32,28 L66,28 C70.4,28 74,31.6 74,36 L74,74 C74,78.4 70.4,82 66,82 L32,82 C27.6,82 24,78.4 24,74 L24,36 C24,31.6 27.6,28 32,28 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="24"
+                android:startY="28"
+                android:endX="74"
+                android:endY="82"
+                android:type="linear">
+                <item android:color="#2A2D48" android:offset="0.0" />
+                <item android:color="#1F2036" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Note lines -->
+    <path
+        android:pathData="M32,40 L56,40"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:strokeColor="#7C4DFF" />
+    <path
+        android:pathData="M32,48 L62,48"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:strokeColor="#56627C" />
+    <path
+        android:pathData="M32,56 L52,56"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:strokeColor="#56627C" />
+    <path
+        android:pathData="M32,64 L60,64"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:strokeColor="#56627C" />
+
+    <!-- Stylus Pen angled across -->
+    <path
+        android:pathData="M81.5,33.5 L73.5,25.5 C72.3,24.3 70.4,24.3 69.2,25.5 L46,48.7 L45,59 L55.3,58 L78.5,34.8 L81.5,33.5 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="45"
+                android:startY="59"
+                android:endX="81"
+                android:endY="25"
+                android:type="linear">
+                <item android:color="#FF00E5FF" android:offset="0.0" />
+                <item android:color="#FF7C4DFF" android:offset="0.6" />
+                <item android:color="#FFFF4081" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Stylus tip highlight -->
+    <path
+        android:pathData="M45,59 L48,56 L47,53 L44,56 Z"
+        android:fillColor="#FFFFFF" />
+
+    <!-- AI Sparkle 1 -->
+    <path
+        android:pathData="M78,58 Q81,58 81,55 Q81,58 84,58 Q81,58 81,61 Q81,58 78,58 Z"
+        android:fillColor="#FFD700" />
+
+    <!-- AI Sparkle 2 (Large) -->
+    <path
+        android:pathData="M70,68 Q75,68 75,63 Q75,68 80,68 Q75,68 75,73 Q75,68 70,68 Z"
+        android:fillColor="#00E5FF" />
+
+    <!-- Fast Lightning bolt quick capture badge -->
+    <path
+        android:pathData="M37,68 L33,75 L38,75 L35,81 L43,73 L38,73 Z"
+        android:fillColor="#FFEB3B" />
+</vector>

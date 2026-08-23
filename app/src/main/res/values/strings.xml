@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">QuickNotes AI</string>
+    <string name="quick_note_title">Nota Rápida</string>
+    <string name="locked_screen_hint">Modo Bloqueado: 3 toques con 2 dedos para captura instantánea</string>
+    <string name="voice_dictation">Dictado por voz</string>
+    <string name="ai_summary">Resumen Inteligente</string>
+</resources>

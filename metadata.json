@@ -1,0 +1,7 @@
+{
+  "name": "QuickNotes AI",
+  "description": "App de notas rápidas con atajo táctil de 3 toques con 2 dedos, dictado por voz, soporte para lápices inteligentes y agente IA de resúmenes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
