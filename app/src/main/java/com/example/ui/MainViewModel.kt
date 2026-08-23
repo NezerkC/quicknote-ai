@@ -1,6 +1,7 @@
 package com.example.ui
 
 import android.app.Application
+import android.content.Intent
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ai.AiSummaryResult
@@ -103,6 +104,38 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val _isQuickCaptureVisible = MutableStateFlow(false)
     val isQuickCaptureVisible: StateFlow<Boolean> = _isQuickCaptureVisible.asStateFlow()
 
+    fun handleIncomingIntent(intent: Intent?) {
+        if (intent == null) return
+        val action = intent.action
+        val isQuickCapture = intent.getBooleanExtra("EXTRA_START_QUICK_CAPTURE", false)
+        val isVoice = intent.getBooleanExtra("EXTRA_START_VOICE", false)
+        val isStylus = intent.getBooleanExtra("EXTRA_START_STYLUS", false)
+
+        if (Intent.ACTION_SEND == action && intent.type == "text/plain") {
+            val sharedText = intent.getStringExtra(Intent.EXTRA_TEXT) ?: ""
+            if (sharedText.isNotBlank()) {
+                val newNote = Note(
+                    title = "Nota Compartida",
+                    content = sharedText,
+                    tags = "Compartido, Rápido"
+                )
+                viewModelScope.launch {
+                    val id = repository.insert(newNote)
+                    val created = newNote.copy(id = id)
+                    _currentNote.value = created
+                    _currentScreen.value = AppScreen.NOTE_EDITOR
+                    autoSummarizeCurrentNote()
+                }
+            }
+        } else if ("android.intent.action.CREATE_NOTE" == action || isQuickCapture) {
+            triggerQuickCaptureFromLockscreen()
+        } else if (isVoice) {
+            createNewNote(startWithVoice = true)
+        } else if (isStylus) {
+            createNewNote(startWithStylus = true)
+        }
+    }
+
     fun navigateTo(screen: AppScreen) {
         _currentScreen.value = screen
     }
@@ -151,7 +184,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun triggerQuickCaptureFromLockscreen() {
         val quickNote = Note(
-            title = "Nota Rápida Lockscreen",
+            title = "Nota Rápida",
             content = "",
             tags = "Lockscreen, Rápida"
         )

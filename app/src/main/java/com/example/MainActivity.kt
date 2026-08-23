@@ -1,5 +1,6 @@
-package com.example
+﻿package com.example
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
@@ -46,6 +47,8 @@ class MainActivity : ComponentActivity() {
             )
         }
 
+        viewModel.handleIncomingIntent(intent)
+
         setContent {
             MyApplicationTheme(darkTheme = true, dynamicColor = false) {
                 Surface(
@@ -56,6 +59,12 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        viewModel.handleIncomingIntent(intent)
     }
 }
 
